@@ -164,7 +164,6 @@
         var sec = 0;
 
 
-
         // ボタンの初期設定
         function init() {
             $('#btnA').prop('disabled', false);
@@ -184,7 +183,7 @@
             img.onload = function() {
                 ctx.drawImage(img, 0, 0, 300, 300);
             };
-            
+
             var audio = new Audio();
             audio.src = "pin.wav";
             //audio.play();
@@ -195,13 +194,11 @@
         // ButtonAがクリックされた時の処理
         function btnAClick(e) {
             active = true;
-            if(!min){
+            if (!min) {
                 startTime = new Date();
-            }else{
-                startTime = min + sec;
             }
-            $("#btnA").css("background-color","lightgrey");
-            $("#btnB").css("background-color","white");
+            $("#btnA").css("background-color", "lightgrey");
+            $("#btnB").css("background-color", "white");
 
 
         }
@@ -209,10 +206,9 @@
         // ButtonBがクリックされた時の処理
         function btnBClick(e) {
             active = false;
-            //min = ("#minute").val();
 
-            $("#btnA").css("background-color","white");
-            $("#btnB").css("background-color","lightgrey");
+            $("#btnA").css("background-color", "white");
+            $("#btnB").css("background-color", "lightgrey");
 
 
         }
@@ -224,7 +220,8 @@
             period = 60 * parseInt($("#minute").val()) + parseInt($("#second").val());
             $("#time").html("経過時間: 0");
             $("#remain").html("残り時間: " + period);
-            $("button").css("background-color","white");
+            $("button").css("background-color", "white");
+            $("body").css("background-color", "skyblue");
         }
         //btnD
         function btnDClick(e) {
@@ -235,11 +232,11 @@
             period = 60 * parseInt($("#minute").val()) + parseInt($("#second").val());
             $("#time").html("経過時間: 0");
             $("#remain").html("残り時間: " + period);
-            $("#btnA").css("background-color","white");
-            $("#btnB").css("background-color","white");
-            $("#btnD").css("background-color","lightgrey");
-            $("#btnE").css("background-color","white");
-
+            $("#btnA").css("background-color", "white");
+            $("#btnB").css("background-color", "white");
+            $("#btnD").css("background-color", "lightgrey");
+            $("#btnE").css("background-color", "white");
+            $("body").css("background-color", "skyblue");
         }
         //btnE
         function btnEClick(e) {
@@ -250,18 +247,28 @@
             period = 60 * parseInt($("#minute").val()) + parseInt($("#second").val());
             $("#time").html("経過時間: 0");
             $("#remain").html("残り時間: " + period);
-            $("#btnA").css("background-color","white");
-            $("#btnB").css("background-color","white");
-            $("#btnD").css("background-color","white");
-            $("#btnE").css("background-color","lightgrey");
+            $("#btnA").css("background-color", "white");
+            $("#btnB").css("background-color", "white");
+            $("#btnD").css("background-color", "white");
+            $("#btnE").css("background-color", "lightgrey");
+            $("body").css("background-color", "skyblue");
         }
-
 
         // 繰り返し実行する処理
         function timer() {
             if (active) {
                 var time = parseInt((new Date() - startTime) / 1000);
                 var rest = period - time;
+                if(rest < 5){
+                    $("body").css("background-color", "orange");
+                }
+               else if(rest < 10){
+                    $("body").css("background-color", "yellow");
+                }else if(rest < 15){
+                    $("body").css("background-color", "green");
+                }else  if (rest < 20) {
+                    $("body").css("background-color", "blue");
+                }
                 $("#time").html("経過時間: " + time);
                 $("#remain").html("残り時間: " + rest);
                 analog(rest);

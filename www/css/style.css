@@ -66,12 +66,13 @@
     #btnD {
         font-size: 20px;
         position:absolute; top:450px; left:2%; width:48%; height:60px; 
-        
+        border-radius: 30px;
     }
 
     #btnE {
         font-size: 20px;
-        position:absolute; top:450px; left:50%; width:48%; height:60px; 
+        position:absolute; top:450px; left:50%; width:48%; height:60px;
+        border-radius: 30px;
     }
     
     #minute {
