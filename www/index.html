@@ -186,6 +186,8 @@
         function btnAClick(e) {
             active = true;
             startTime = new Date();
+            $("#btnA").css("background-color","lightgrey");
+            $("#btnB").css("background-color","white");
 
 
         }
@@ -193,6 +195,8 @@
         // ButtonBがクリックされた時の処理
         function btnBClick(e) {
             active = false;
+            $("#btnA").css("background-color","white");
+            $("#btnB").css("background-color","lightgrey");
 
 
         }
@@ -204,6 +208,8 @@
             period = 60 * parseInt($("#minute").val()) + parseInt($("#second").val());
             $("#time").html("経過時間: 0");
             $("#remain").html("残り時間: " + period);
+            $("#btnA").css("background-color","white");
+            $("#btnB").css("background-color","white");
 
         }
 
@@ -239,8 +245,8 @@
     <button id="btnA">Start</button>
     <button id="btnB">Stop</button>
     <button id="btnC">Set</button>
-    <button id="btnD">Set</button>
-    <button id="btnE">Set</button>
+    <button id="btnD">Set : 3m</button>
+    <button id="btnE">Set : 5m</button>
     <input type="number" id="minute" value=0>
     <input type="number" id="second" value=15>
 </body>
