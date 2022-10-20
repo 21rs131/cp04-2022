@@ -196,7 +196,11 @@
             active = true;
             if (!min) {
                 startTime = new Date();
+            }else{
+                time = min;
+                rest = sec;
             }
+
             $("#btnA").css("background-color", "lightgrey");
             $("#btnB").css("background-color", "white");
 
@@ -206,7 +210,8 @@
         // ButtonBがクリックされた時の処理
         function btnBClick(e) {
             active = false;
-
+            min = time;
+            sec = rest;
             $("#btnA").css("background-color", "white");
             $("#btnB").css("background-color", "lightgrey");
 
@@ -222,6 +227,10 @@
             $("#remain").html("残り時間: " + period);
             $("button").css("background-color", "white");
             $("body").css("background-color", "skyblue");
+            if(rest == 0){
+                min = 0;
+                sec = 0;
+            }
         }
         //btnD
         function btnDClick(e) {
@@ -237,6 +246,10 @@
             $("#btnD").css("background-color", "lightgrey");
             $("#btnE").css("background-color", "white");
             $("body").css("background-color", "skyblue");
+            if(rest == 0){
+                min = 0;
+                sec = 0;
+            }
         }
         //btnE
         function btnEClick(e) {
@@ -252,6 +265,10 @@
             $("#btnD").css("background-color", "white");
             $("#btnE").css("background-color", "lightgrey");
             $("body").css("background-color", "skyblue");
+            if(rest == 0){
+                min = 0;
+                sec = 0;
+            }
         }
 
         // 繰り返し実行する処理
